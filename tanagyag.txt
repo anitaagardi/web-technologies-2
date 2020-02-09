@@ -1,0 +1,17 @@
+Node.js
+https://www.w3schools.com/nodejs/
+https://www.tutorialspoint.com/nodejs/index.htm
+
+TypeScript
+https://www.tutorialspoint.com/typescript/index.htm
+https://www.typescriptlang.org/docs/home.html
+
+Angular
+https://angular.io/docs
+
+MongoDB
+https://www.tutorialspoint.com/mongodb/index.htm
+
+
+React
+https://reactjs.org/tutorial/tutorial.html

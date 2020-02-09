@@ -1,0 +1,10 @@
+1. node js telepítés:
+ https://nodejs.org/en/download
+2. az alábbi parancs kiadása (ezzel telepítjük a typescript-et):
+ npm install -g typescript
+3. fordítás:
+ tsc 1.ts 
+ vagy más dir-be a js file-ok:
+ tsc 1.ts --outDir js_files 
+4. futtatás:
+ node 1.js
