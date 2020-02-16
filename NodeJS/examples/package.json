@@ -1,0 +1,17 @@
+{
+  "name": "example_package",
+  "version": "1.0.0",
+  "description": "example package",
+  "main": "1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Anita Agardi",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "multer": "^1.4.2"
+  }
+}
