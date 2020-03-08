@@ -1,0 +1,13 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body { 
+    font-family: Roboto, Arial, sans-serif; 
+    margin: 10; 
+ }
+ .basic-container { 
+    padding: 30px; 
+ }
+ .version-info { 
+    font-size: 8pt; 
+    float: right;
+ }
+ 

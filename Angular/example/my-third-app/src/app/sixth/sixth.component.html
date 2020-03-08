@@ -1,0 +1,19 @@
+<div style="text-align:center">
+    <h1>Welcome to {{title}}.</h1>
+</div>
+
+<div> Months :
+    <select (change)="changemonths($event)" name="month">
+        <option *ngFor="let i of months">{{i}}</option>
+    </select>
+</div>
+<br />
+
+<div>
+    <span *ngIf="isavailable;then condition1 else condition2">
+        Condition is valid.
+    </span>
+    <ng-template #condition1>Condition is valid from template</ng-template>
+    <ng-template #condition2>Condition is invalid from template</ng-template>
+</div>
+<button (click)="myClickFunction($event)">Click Me</button>

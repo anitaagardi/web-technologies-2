@@ -1,0 +1,34 @@
+<div style="width:100%;">
+    <div style="width:40%;float:left;border:solid 1px black;">
+        <h1>Uppercase Pipe</h1>
+        <b>{{title | uppercase}}</b>
+        <br />
+
+        <h1>Lowercase Pipe</h1>
+        <b>{{title | lowercase}}</b>
+        <h1>Currency Pipe</h1>
+        <b>{{6589.23 | currency:"USD"}}</b>
+        <br />
+
+        <b>{{6589.23 | currency:"USD":true}}</b>
+        // Boolean true is used to get the sign of the currency.
+        <h1>Date pipe</h1>
+        <b>{{todaydate | date:'d/M/y'}}</b>
+        <br />
+
+        <b>{{todaydate | date:'shortTime'}}</b>
+        <h1>Decimal Pipe</h1>
+        <b>{{ 454.78787814 | number: '3.4-4' }}</b>
+        // 3 is for main integer, 4 -4 are for integers to be displayed.
+    </div>
+
+    <div style="width:40%;float:left;border:solid 1px black;">
+        <h1>Json Pipe</h1>
+        <b>{{ jsonval | json }}</b>
+        <h1>Percent Pipe</h1>
+        <b>{{00.54565 | percent}}</b>
+        <h1>Slice Pipe</h1>
+        <b>{{months | slice:2:6}}</b>
+        // here 2 and 6 refers to the start and the end index
+    </div>
+</div>

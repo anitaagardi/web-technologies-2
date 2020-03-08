@@ -1,0 +1,16 @@
+<div style="text-align:center">
+    <h1> Welcome to {{title}}. </h1>
+</div>
+
+<div> Months :
+    <select>
+        <option *ngFor="let i of months">{{i}}</option>
+    </select>
+</div>
+<br />
+
+<div>
+    <span *ngIf="isavailable">Condition is valid.</span>
+    //over here based on if condition the text condition is valid is displayed.
+    //If the value of isavailable is set to false it will not display the text.
+</div>

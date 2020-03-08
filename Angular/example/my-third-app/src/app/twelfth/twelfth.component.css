@@ -1,0 +1,16 @@
+input[type = text], input[type = password] { 
+    width: 40%; 
+    padding: 12px 20px; 
+    margin: 8px 0; 
+    display: inline-block; 
+    border: 1px solid #B3A9A9; 
+    box-sizing: border-box; 
+ } 
+ input[type = submit] { 
+    padding: 12px 20px; 
+    margin: 8px 0; 
+    display: inline-block; 
+    border: 1px solid #B3A9A9; 
+    box-sizing: border-box; 
+ }
+ 
