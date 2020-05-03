@@ -1,0 +1,439 @@
+<h1>Online jelentkezés</h1>
+<mat-divider></mat-divider>
+<br>
+<br>
+<h2>Pályamunka</h2>
+<mat-divider></mat-divider>
+<br>
+<br>
+<form #applyingTDKForm>
+  <mat-form-field>
+    <input name="application.tdkTitle" matInput [(ngModel)]="application.tdkTitle" placeholder="A pályamunka címe"
+      type="text" required minlength="1" #applicationTdkTitleModel="ngModel" />
+
+    <mat-error
+      *ngIf="applicationTdkTitleModel.invalid && (applicationTdkTitleModel.dirty|| applicationTdkTitleModel.touched)">
+      A pályamunka címét
+      kötelező megadni</mat-error>
+
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input name="application.facultySectionName" matInput [(ngModel)]="application.facultySectionName"
+      placeholder="Kari szekció" type="text" required minlength="1" #applicationFacultySectionNameModel="ngModel" />
+
+    <mat-error
+      *ngIf="applicationFacultySectionNameModel.invalid && (applicationFacultySectionNameModel.dirty|| applicationFacultySectionNameModel.touched)">
+      A
+      kari szekciót kötelező megadni</mat-error>
+
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Kar</mat-label>
+    <mat-select name="application.facultyName" [(ngModel)]="application.facultyName">
+      <mat-option *ngFor="let facultyOption of faculties" [value]="facultyOption.value">
+        {{facultyOption.value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input matInput name="application.equipments" [(ngModel)]="application.equipments"
+      placeholder="Különleges technikai eszközök az előadás megtartásához" type="text" required minlength="1"
+      #applicationEquipments="ngModel" />
+  </mat-form-field>
+  <br>
+</form>
+<h2> Témavezetők</h2>
+<mat-divider></mat-divider>
+<br>
+<br>
+<form #supervisorForm>
+  <mat-form-field>
+    <input name="supervisor.name" matInput [(ngModel)]="supervisor.name" placeholder="A témavezető neve" type="text"
+      required minlength="1" #supervisorNameModel="ngModel" />
+
+    <mat-error *ngIf="supervisorNameModel.invalid && (supervisorNameModel.dirty|| supervisorNameModel.touched)">A
+      témavezető nevét
+      kötelező megadni</mat-error>
+
+  </mat-form-field>
+
+  <br>
+  <mat-form-field>
+    <input name="supervisor.position" matInput [(ngModel)]="supervisor.position" placeholder="A témavezető beosztása"
+      type="text" required minlength="1" #supervisorPositionModel="ngModel" />
+
+    <mat-error
+      *ngIf="supervisorPositionModel.invalid && (supervisorPositionModel.dirty|| supervisorPositionModel.touched)">
+      A
+      témavezető beosztását kötelező megadni</mat-error>
+
+  </mat-form-field>
+  <br>
+  <h4> Témavezető munkahelye</h4>
+
+  <br>
+  <mat-form-field>
+    <mat-label>Kar</mat-label>
+    <mat-select [ngModelOptions]="{standalone: true}" [(ngModel)]="supervisor.faculty">
+      <mat-option *ngFor="let facultyOption of faculties" [value]="facultyOption.value">
+        {{facultyOption.value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <br>
+  <mat-form-field>
+    <input name="supervisor.position" matInput [(ngModel)]="supervisor.institute" placeholder="Intézet" type="text"
+      required minlength="1" #supervisorInstituteModel="ngModel" />
+
+    <mat-error
+      *ngIf="supervisorInstituteModel.invalid && (supervisorInstituteModel.dirty|| supervisorInstituteModel.touched)">
+      Az
+      intézetet kötelező megadni</mat-error>
+
+  </mat-form-field>
+  <br>
+  <br>
+  <br>
+  <button mat-raised-button color="primary" (click)="addNewSupervisor()"
+    [disabled]="supervisorNameModel.invalid||supervisorPositionModel.invalid||supervisorInstituteModel.invalid">
+    <span class="material-icons">
+      add
+    </span>Témavezető felvitele</button>
+</form>
+<br>
+<br>
+<!--TABLE: SUPERVISORS LIST-->
+<h4>Témavezetők listája</h4>
+<mat-divider></mat-divider>
+<br>
+<br>
+<table #supervisorsTable mat-table [dataSource]="createdSupervisorsSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Név</th>
+    <td mat-cell *matCellDef="let supervisor">{{supervisor.name}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> Beosztása </th>
+    <td mat-cell *matCellDef="let supervisor"> {{supervisor.position}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="faculty">
+    <th mat-header-cell *matHeaderCellDef> Kar</th>
+    <td mat-cell *matCellDef="let supervisor"> {{supervisor.faculty}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="institute">
+    <th mat-header-cell *matHeaderCellDef> Intézet</th>
+    <td mat-cell *matCellDef="let supervisor"> {{supervisor.institute}} </td>
+  </ng-container>
+  <ng-container matColumnDef="deleteSupervisor">
+    <th mat-header-cell *matHeaderCellDef> Témavezető törlése</th>
+    <td mat-cell *matCellDef="let supervisor">
+      <button mat-raised-button color="primary" (click)="removeSupervisor(supervisor)"><span class="material-icons">
+          delete
+        </span>Témavezető törlése</button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumnsSupervisors"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumnsSupervisors;"></tr>
+
+</table>
+
+
+
+
+<br>
+<br>
+<h2> Szerző(k)</h2>
+<mat-divider></mat-divider>
+<br>
+<br>
+<form #authorForm>
+  <mat-form-field>
+    <input name="author.name" matInput [(ngModel)]="author.name" placeholder="Szerző neve" type="text" required
+      minlength="1" #authorNameModel="ngModel" />
+
+    <mat-error *ngIf="authorNameModel.invalid && (authorNameModel.dirty|| authorNameModel.touched)">A szerző nevét
+      kötelező megadni</mat-error>
+
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Kar</mat-label>
+    <mat-select [ngModelOptions]="{standalone: true}" [(ngModel)]="author.facultyName">
+      <mat-option *ngFor="let facultyOption of faculties" [value]="facultyOption.value">
+        {{facultyOption.value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input name="author.name" matInput [(ngModel)]="author.specialization" placeholder="Szak" type="text" required
+      minlength="1" #authorSpecializationModel="ngModel" />
+
+    <mat-error
+      *ngIf="authorSpecializationModel.invalid && (authorSpecializationModel.dirty|| authorSpecializationModel.touched)">
+      A szakot kötelező megadni</mat-error>
+
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input name="author.year" matInput [(ngModel)]="author.year" placeholder="Évfolyam" type="number" required
+      minlength="1" #authorYearModel="ngModel" min="1" />
+
+    <mat-error *ngIf="authorYearModel.invalid && (authorYearModel.dirty|| authorYearModel.touched)">Az évfolyamot
+      kötelező megadni</mat-error>
+
+  </mat-form-field>
+  <br>
+  <h4> Szerzők adatai az esetleges pénzdíjak kifizetéséhez</h4>
+
+  <mat-form-field>
+    <input name="author.neptunCode" matInput [(ngModel)]="author.neptunCode" placeholder="Neptun kód" type="text"
+      required minlength="1" #authorNeptunCodeModel="ngModel" />
+
+    <mat-error *ngIf="authorNeptunCodeModel.invalid && (authorNeptunCodeModel.dirty|| authorNeptunCodeModel.touched)">A
+      neptun kódot kötelező megadni</mat-error>
+
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input name="author.idNumber" matInput [(ngModel)]="author.idNumber" placeholder="Személyi igazolvány szám"
+      type="text" required minlength="1" #authorIdNumberModel="ngModel" />
+    <mat-error *ngIf="authorIdNumberModel.invalid && (authorIdNumberModel.dirty|| authorIdNumberModel.touched)">A
+      személyi igazolvány számot kötelező megadni
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Képzés típusa</mat-label>
+    <mat-select [ngModelOptions]="{standalone: true}" [(ngModel)]="author.typeOfTheSpecialization">
+      <mat-option *ngFor="let typeOfTheSpecializationOption of typeOfTheSpecialization"
+        [value]="typeOfTheSpecializationOption.value">
+        {{typeOfTheSpecializationOption.value}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <h4> Adózási státusza</h4>
+
+  <mat-radio-group [ngModelOptions]="{standalone: true}" class="tax-radio-group" [(ngModel)]="author.taxStatus">
+    <mat-radio-button class="tax-radio-button" *ngFor="let tax of  taxation" [value]="tax">
+      {{tax}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <br>
+  <br>
+  Dolgozó:
+
+  <mat-radio-group [ngModelOptions]="{standalone: true}" class="employee-radio-group" [(ngModel)]="author.isEmployee">
+    <mat-radio-button class="employee-radio-button" *ngFor="let employee of  employees" [value]="employee">
+      {{employee}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <br>
+  <br>
+
+  <br>
+  <mat-form-field>
+    <input name="author.taxIdentificationNumber" matInput [(ngModel)]="author.taxIdentificationNumber"
+      placeholder="Adóazonosító jel" type="text" required minlength="1" #authorTaxIdentificationNumberModel="ngModel" />
+    <mat-error
+      *ngIf="authorTaxIdentificationNumberModel.invalid && (authorTaxIdentificationNumberModel.dirty|| authorTaxIdentificationNumberModel.touched)">
+      Az adóazonosító jelet kötelező megadni
+    </mat-error>
+  </mat-form-field>
+  <br>
+  <h4> Születési hely, idő</h4>
+  <mat-form-field>
+    <input name="author.birthPlace" matInput [(ngModel)]="author.birthPlace" placeholder="Születési hely" type="text"
+      required minlength="1" #authorBirthPlaceModel="ngModel" />
+    <mat-error *ngIf="authorBirthPlaceModel.invalid && (authorBirthPlaceModel.dirty|| authorBirthPlaceModel.touched)">A
+      születési helyet kötelező megadni</mat-error>
+  </mat-form-field>
+  <br>
+
+  <mat-label>Születési idő</mat-label>
+  <input name="author.birthDate" matInput [matDatepicker]="pickerAuthorBirthDate" [(ngModel)]="author.birthDate"
+    #authorBirthDateModel="ngModel">
+  <mat-datepicker-toggle matSuffix [for]="pickerAuthorBirthDate"></mat-datepicker-toggle>
+  <mat-datepicker #pickerAuthorBirthDate></mat-datepicker>
+  <mat-error *ngIf="authorBirthDateModel.invalid && (authorBirthDateModel.dirty|| authorBirthDateModel.touched)">
+    A
+    szerző születési évét kötelező megadni</mat-error>
+
+  <mat-form-field>
+    <input name="author.nameOfTheMother" matInput [(ngModel)]="author.nameOfTheMother" placeholder="Anyja neve"
+      type="text" required minlength="1" #authorNameOfTheMotherModel="ngModel" />
+    <mat-error
+      *ngIf="authorNameOfTheMotherModel.invalid && (authorNameOfTheMotherModel.dirty|| authorNameOfTheMotherModel.touched)">
+      Az anyja nevét kötelező megadni</mat-error>
+  </mat-form-field>
+  <br>
+  <h4>Állandó lakcím</h4>
+  <mat-form-field>
+    <input name="author.zipCode" matInput [(ngModel)]="author.zipCode" placeholder="Irányítószám" type="text" required
+      minlength="1" #authorZipCodeModel="ngModel" />
+    <mat-error *ngIf="authorZipCodeModel.invalid && (authorZipCodeModel.dirty|| authorZipCodeModel.touched)">Az
+      irányító
+      számot kötelező megadni</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input name="author.town" matInput [(ngModel)]="author.town" placeholder="Város" type="text" required minlength="1"
+      #authorTownModel="ngModel" />
+    <mat-error *ngIf="authorTownModel.invalid && (authorTownModel.dirty|| authorTownModel.touched)">A várost
+      kötelező
+      megadni</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input name="author.streetAndNumber" matInput [(ngModel)]="author.streetAndNumber" placeholder="Utca, házszám"
+      type="text" required minlength="1" #authorStreetAndNumberModel="ngModel" />
+    <mat-error
+      *ngIf="authorStreetAndNumberModel.invalid && (authorStreetAndNumberModel.dirty|| authorStreetAndNumberModel.touched)">
+      Az utcát, házszámot kötelező megadni</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input name="author.telephoneNumber" matInput [(ngModel)]="author.telephoneNumber" placeholder="Telefon" type="text"
+      required minlength="1" #authorTelephoneNumberModel="ngModel" />
+    <mat-error
+      *ngIf="authorTelephoneNumberModel.invalid && (authorTelephoneNumberModel.dirty|| authorTelephoneNumberModel.touched)">
+      A telefont kötelező megadni</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input name="author.email" matInput [(ngModel)]="author.email" placeholder="Email" type="text" required
+      minlength="1" #authorEmailModel="ngModel" />
+    <mat-error *ngIf="authorEmailModel.invalid && (authorEmailModel.dirty|| authorEmailModel.touched)">A emailt
+      kötelező
+      megadni</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <input name="author.bankAccountNumber" matInput [(ngModel)]="author.bankAccountNumber" placeholder="Bankszámla szám"
+      type="text" required minlength="1" #authorBankAccountNumberModel="ngModel" />
+    <mat-error
+      *ngIf="authorBankAccountNumberModel.invalid && (authorBankAccountNumberModel.dirty|| authorBankAccountNumberModel.touched)">
+      A bankszámla számot kötelező megadni</mat-error>
+  </mat-form-field>
+  <br>
+  <br>
+  <button mat-raised-button color="primary" (click)="addNewAuthor()" [disabled]="(authorNameModel.invalid||authorSpecializationModel.invalid||authorYearModel.invalid||
+authorNeptunCodeModel.invalid||authorIdNumberModel.invalid||authorTaxIdentificationNumberModel.invalid||authorBirthPlaceModel.invalid||
+authorNameOfTheMotherModel.invalid||authorZipCodeModel.invalid||authorTownModel.invalid||authorStreetAndNumberModel.invalid||
+authorTelephoneNumberModel.invalid||authorEmailModel.invalid||authorBankAccountNumberModel.invalid||authorBirthDateModel.invalid)||(actualDate >=author.birthdate )
+"><span class="material-icons">
+      add
+    </span>Szerző felvitele</button>
+</form>
+<br>
+<br>
+<h4>Szerzők</h4>
+<mat-divider></mat-divider>
+<br>
+<br>
+<table mat-table [dataSource]="createdAuthorsSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Név</th>
+    <td mat-cell *matCellDef="let author">{{author.name}} </td>
+  </ng-container>
+  <ng-container matColumnDef="facultyName">
+    <th mat-header-cell *matHeaderCellDef>Kar</th>
+    <td mat-cell *matCellDef="let author">{{author.facultyName}} </td>
+  </ng-container>
+  <ng-container matColumnDef="specialization">
+    <th mat-header-cell *matHeaderCellDef>Szak</th>
+    <td mat-cell *matCellDef="let author">{{author.specialization}} </td>
+  </ng-container>
+  <ng-container matColumnDef="year">
+    <th mat-header-cell *matHeaderCellDef>Évfolyam</th>
+    <td mat-cell *matCellDef="let author">{{author.year}} </td>
+  </ng-container>
+  <ng-container matColumnDef="neptunCode">
+    <th mat-header-cell *matHeaderCellDef>Neptun kód</th>
+    <td mat-cell *matCellDef="let author">{{author.neptunCode}} </td>
+  </ng-container>
+  <ng-container matColumnDef="idNumber">
+    <th mat-header-cell *matHeaderCellDef>Személyi igazolvány szám</th>
+    <td mat-cell *matCellDef="let author">{{author.idNumber}} </td>
+  </ng-container>
+  <ng-container matColumnDef="typeOfTheSpecialization">
+    <th mat-header-cell *matHeaderCellDef>Képzés típusa</th>
+    <td mat-cell *matCellDef="let author">{{author.typeOfTheSpecialization}} </td>
+  </ng-container>
+  <ng-container matColumnDef="taxStatus">
+    <th mat-header-cell *matHeaderCellDef>Adózási státusza</th>
+    <td mat-cell *matCellDef="let author">{{author.taxStatus}} </td>
+  </ng-container>
+  <ng-container matColumnDef="isEmployee">
+    <th mat-header-cell *matHeaderCellDef>Dolgozó</th>
+    <td mat-cell *matCellDef="let author">{{author.isEmployee}} </td>
+  </ng-container>
+  <ng-container matColumnDef="taxIdentificationNumber">
+    <th mat-header-cell *matHeaderCellDef>Adóazonosító jel</th>
+    <td mat-cell *matCellDef="let author">{{author.taxIdentificationNumber}} </td>
+  </ng-container>
+  <ng-container matColumnDef="birthPlace">
+    <th mat-header-cell *matHeaderCellDef>születési hely</th>
+    <td mat-cell *matCellDef="let author">{{author.birthPlace}} </td>
+  </ng-container>
+  <ng-container matColumnDef="birthDate">
+    <th mat-header-cell *matHeaderCellDef>Születési idő</th>
+    <td mat-cell *matCellDef="let author">{{author.birthDate |date: 'yyyy.MM.dd.'}} </td>
+  </ng-container>
+  <ng-container matColumnDef="nameOfTheMother">
+    <th mat-header-cell *matHeaderCellDef>Anyja neve</th>
+    <td mat-cell *matCellDef="let author">{{author.nameOfTheMother}} </td>
+  </ng-container>
+  <ng-container matColumnDef="zipCode">
+    <th mat-header-cell *matHeaderCellDef>Irányítószám</th>
+    <td mat-cell *matCellDef="let author">{{author.zipCode}} </td>
+  </ng-container>
+  <ng-container matColumnDef="town">
+    <th mat-header-cell *matHeaderCellDef>Város</th>
+    <td mat-cell *matCellDef="let author">{{author.town}} </td>
+  </ng-container>
+  <ng-container matColumnDef="streetAndNumber">
+    <th mat-header-cell *matHeaderCellDef>Utca, házszám</th>
+    <td mat-cell *matCellDef="let author">{{author.streetAndNumber}} </td>
+  </ng-container>
+  <ng-container matColumnDef="telephoneNumber">
+    <th mat-header-cell *matHeaderCellDef>Telefonszám</th>
+    <td mat-cell *matCellDef="let author">{{author.telephoneNumber}} </td>
+  </ng-container>
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let author">{{author.email}} </td>
+  </ng-container>
+  <ng-container matColumnDef="bankAccountNumber">
+    <th mat-header-cell *matHeaderCellDef>Bankszámlaszám</th>
+    <td mat-cell *matCellDef="let author">{{author.bankAccountNumber}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="deleteAuthor">
+    <th mat-header-cell *matHeaderCellDef> Szerző törlése</th>
+    <td mat-cell *matCellDef="let author">
+      <button mat-raised-button color="primary" (click)="removeAuthor(author)"><span class="material-icons">
+          delete
+        </span>Szerző törlése</button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumnsAuthors"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumnsAuthors;"></tr>
+
+</table>
+
+<br>
+<br>
+<button mat-raised-button color="primary" (click)="applyingTDK()"
+  [disabled]="applicationTdkTitleModel.invalid||applicationFacultySectionNameModel.invalid"><span
+    class="material-icons">
+    add
+  </span>Jelentkezés</button>

@@ -1,0 +1,147 @@
+<h1>A konferencián résztvevők listája</h1>
+<mat-divider></mat-divider>
+<br>
+<br>
+
+<br>
+<br>
+
+<mat-form-field>
+  <mat-label><span class="material-icons">
+      search
+    </span>Keresés</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Keresés">
+</mat-form-field>
+<br>
+<br>
+<mat-divider></mat-divider>
+<br>
+<br>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" id="participantsTable">
+  <ng-container matColumnDef="operations">
+    <th mat-header-cell *matHeaderCellDef> Műveletek </th>
+    <td mat-cell *matCellDef="let application">
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Jelentkezés művelet
+            </mat-panel-title>
+            <mat-panel-description>
+
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <button mat-raised-button color="basic" (click)="setStatusAccepted(application)"
+            class="expansion-button">Jóváhagyás</button> <br><br>
+          <button mat-raised-button color="basic" (click)="setStatusRejected(application)"
+            class="expansion-button">Elutasítás</button>
+          <button mat-raised-button color="basic" (click)="deleteApplication(application)"
+            class="expansion-button">Törlés</button>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="status">
+    <th mat-header-cell *matHeaderCellDef> Státusz</th>
+    <td mat-cell *matCellDef="let application">{{application.status}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="tdkTitle">
+    <th mat-header-cell *matHeaderCellDef> Pályamunka címe </th>
+    <td mat-cell *matCellDef="let application"> {{application.tdkTitle}} </td>
+  </ng-container>
+
+
+
+  <ng-container matColumnDef="facultySectionName">
+    <th mat-header-cell *matHeaderCellDef> Kari szekció </th>
+    <td mat-cell *matCellDef="let application"> {{application.facultySectionName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="facultyName">
+    <th mat-header-cell *matHeaderCellDef> Kar </th>
+    <td mat-cell *matCellDef="let application"> {{application.facultyName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="equipments">
+    <th mat-header-cell *matHeaderCellDef> Különleges technikai eszközök az előadás megtartásához </th>
+    <td mat-cell *matCellDef="let application"> {{application.equipments}} </td>
+  </ng-container>
+  <ng-container matColumnDef="supervisors">
+    <th mat-header-cell *matHeaderCellDef> Témavezető(k) </th>
+    <td mat-cell *matCellDef="let application">
+      <span *ngFor="let supervisor of application.supervisors">
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Témavezető adatai
+              </mat-panel-title>
+              <mat-panel-description>
+                {{supervisor.name}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>Neve: {{supervisor.name}}</p>
+            <p> Beosztása: {{supervisor.position}}</p>
+            <p> Munkahelye: {{supervisor.faculty}} {{supervisor.institute}}</p>
+          </mat-expansion-panel>
+        </mat-accordion>
+      </span>
+    </td>
+  </ng-container>
+  <ng-container matColumnDef="authors">
+    <th mat-header-cell *matHeaderCellDef> Szerző(k) </th>
+    <td mat-cell *matCellDef="let application">
+      <span *ngFor="let author of application.authors">
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                Szerző adatai
+              </mat-panel-title>
+              <mat-panel-description>
+                {{author.name}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>Neve: {{author.name}} </p>
+            <p> Kar: {{author.facultyName}}</p>
+            <p>Szak:
+              {{author.specialization}}</p>
+            <p>Évfolyam:{{author.year}} </p>
+            <p>Neptun kód: {{author.neptunCode}}</p>
+            <p>Személyi
+              igazolvány
+              szám: {{author.idNumber}}</p>
+            <p>Képzés típusa: {{author.typeOfTheSpecialization}}</p>
+            <p>Adózási
+              státusza:{{author.taxStatus}}</p>
+            <p>Dolgozó:{{author.isEmployee}}</p>
+            <p>Adóazonosító jel:{{author.taxIdentificationNumber}}</p>
+            <p>Születési
+              hely:{{author.birthPlace}}</p>
+            <p>Születési idő:{{author.birthDate |date: 'yyyy.MM.dd.'}}</p>
+            <p>Anyja neve {{author.nameOfTheMother}}</p>
+            <p>Állandó lakcím::
+              Irányítószám:{{author.zipCode}}
+              Város:{{author.town}} Utca,
+              házszám: {{author.streetAndNumber}}</p>
+            <p>Telefon: {{author.telephoneNumber}}</p>
+            <p>Email: {{author.email}}</p>
+            <p>Bankszámla
+              szám:
+              {{author.bankAccountNumber}}</p>
+          </mat-expansion-panel>
+        </mat-accordion>
+
+      </span>
+
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+<mat-paginator [pageSizeOptions]="[50, 100, 200,500]" showFirstLastButtons></mat-paginator>

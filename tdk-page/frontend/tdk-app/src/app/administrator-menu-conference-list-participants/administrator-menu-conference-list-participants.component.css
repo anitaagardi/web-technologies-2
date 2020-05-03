@@ -1,0 +1,19 @@
+table {
+    width: 100%;
+
+  }
+  .mat-row {
+    height: auto;
+  }
+  
+  .mat-cell {
+    padding: 15px 15px 15px 15px;
+  }
+  mat-form-field {
+    display: block;
+    width: 50%;
+  }
+
+.expansion-button{
+  width:100%;
+}
