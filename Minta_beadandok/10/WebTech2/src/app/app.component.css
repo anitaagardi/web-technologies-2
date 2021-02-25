@@ -1,0 +1,16 @@
+footer {
+  text-align: center;
+  font-size: 11px;
+  background-color: #3f51b5;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  padding-top: 10px;
+  color: #fff;
+}
+
+main {
+  width: 80%!important;
+  margin: 0 auto!important;
+}

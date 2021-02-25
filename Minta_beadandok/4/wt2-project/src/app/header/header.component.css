@@ -1,0 +1,16 @@
+.navbar {
+  justify-content: space-between;
+}
+
+.navbar span {
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.mat-button {
+  font-size: 16px;
+}
+
+#home {
+  font-size: 24px;
+}

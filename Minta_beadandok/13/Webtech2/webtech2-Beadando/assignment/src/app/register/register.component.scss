@@ -1,0 +1,55 @@
+.mat-title {
+  color: gray;
+}
+
+body {
+  background-image: url(kep.jpg) ;
+  background-size: cover;
+  background-position:center;
+  height:720px;
+  margin: auto;
+
+  background-position: top center;
+  padding: 100px ;
+
+}
+
+.form {
+  alignment: center;
+}
+
+#everything{
+  margin: auto;
+  width: 100%;
+  aligment: left;
+}
+
+input {
+  margin: 5px;
+  padding: 10px;
+}
+
+.input {
+  margin: 5px;
+  padding: 10px;
+}
+
+.btn:hover {
+  background-color: dodgerblue;
+  color: black;
+}
+
+.btn {
+  width: max-content;
+  width: max-content;
+  alignment: bottom;
+  margin: 5px;
+  padding: 10px 40px 10px 40px;
+  color: white;
+  background-color: green;
+}
+mat-card{
+  margin: 0 auto ;
+  width: calc(100% - 1400px);
+  text-align: center;
+}

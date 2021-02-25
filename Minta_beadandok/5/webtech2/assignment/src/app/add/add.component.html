@@ -1,0 +1,42 @@
+<html>
+<body>
+
+  <mat-panel-title class="mat-title"> Műveletek </mat-panel-title>
+
+  <p></p>
+
+    <button mat-raised-button routerLinkActive="active" routerLink="/list" class="actbtn" >Listázás</button>
+    <button mat-raised-button routerLinkActive="active" (click)=logout() class="actbtn" >Kijelentkezés</button>
+
+  <p></p>
+
+  <mat-panel-title class="mat-title"> Új munkavállaló hozzáadása </mat-panel-title>
+
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit()" class="form" >
+      <mat-form-field >
+        <input matInput type="text" placeholder="Név" formControlName="name">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field >
+        <input matInput  placeholder="Beosztás" type="text"  formControlName="position">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field >
+        <input matInput  placeholder="Iroda" type="text"  formControlName="office">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field >
+        <input matInput  placeholder="Fizetés" type="text" formControlName="salary">
+      </mat-form-field>
+      <br>
+
+      <button mat-raised-button type="submit"  class="btn" >Hozzáadás</button>
+
+    </form>
+
+
+</body>
+</html>

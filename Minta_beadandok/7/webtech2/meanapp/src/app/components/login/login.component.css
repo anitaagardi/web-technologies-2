@@ -1,0 +1,22 @@
+
+.card{
+  width:20%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+mat-form-field{
+  width: 20vw;
+}
+
+.submit{
+  width: 20vw;
+}
+.title{
+  margin: 10px;
+}
+
+#wrongDatas{
+  margin-bottom: 5px;
+  color: red;
+
+}

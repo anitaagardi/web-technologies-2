@@ -1,0 +1,28 @@
+<html>
+<body>
+
+<mat-panel-title class="mat-title"> Alkalmazottak </mat-panel-title>
+
+<p></p>
+
+<table class="mat-elevation-z8">
+  <thead>
+  <tr>
+    <th>Név</th>
+    <th>Beosztás</th>
+    <th>Iroda</th>
+    <th>Fizetés</th>
+  </tr>
+  </thead>
+  <tr *ngFor="let employee of Employee">
+    <td>{{employee.name}}</td>
+    <td>{{employee.position}}</td>
+    <td>{{employee.office}}</td>
+    <td>{{employee.salary}}</td>
+  </tr>
+</table>
+
+
+</body>
+</html>
+

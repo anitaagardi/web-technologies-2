@@ -1,0 +1,48 @@
+<div class="form-group mb-4">
+  <input class="form-control" type="text" [(ngModel)]="searchText" placeholder="Search">
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <td>#</td>
+          <td>Borrowed DVD</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let connection of ModdedConnection | filter: searchText; let i = index">
+          <th scope="row">{{i + 1}}</th>
+          <td>{{ connection.title }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col">
+<table class="table table-hover" *ngIf="(DVDs | filter: searchText).length >0;
+ else noResults">
+  <thead>
+  <tr>
+    <td>#</td>
+    <td>Title</td>
+    <td colspan="2">Action</td>
+  </tr>
+  </thead>
+  <tbody>
+  <ng-container *ngFor="let DVD of DVDs | filter: searchText; let i = index">
+    <tr *ngIf="DVD.state==='free'">
+      <th scope="row">{{i + 1}}</th>
+      <td>{{ DVD.title }}</td>
+      <td><a [routerLink]="" (click) = "addDVDtoConnection(DVD._id, DVD.title)"
+             class="btn btn-danger">Add</a></td>
+    </tr>
+  </ng-container>
+  </tbody>
+</table>
+    </div>
+<ng-template #noResults>
+  <p>No results found for "{{searchText}}".</p>
+</ng-template>
+</div>
+</div>

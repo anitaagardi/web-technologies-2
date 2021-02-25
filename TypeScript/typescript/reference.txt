@@ -1,0 +1,2 @@
+https://www.typescriptlang.org/
+https://www.tutorialspoint.com/typescript/index.htm

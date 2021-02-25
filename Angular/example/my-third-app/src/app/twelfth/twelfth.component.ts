@@ -13,12 +13,13 @@ export class TwelfthComponent implements OnInit {
   constructor(/*private myservice2: Myservice2Service*/) { }
   ngOnInit() {
     this.formdata = new FormGroup({
-      emailid: new FormControl("angular@gmail.com"),
+      emailid: new FormControl(),
       passwd: new FormControl("abcd1234")
     });
   }
   onClickSubmit(data) {
     this.emailid = data.emailid;
+    console.log(this.emailid);
   }
 
 

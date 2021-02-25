@@ -14,7 +14,7 @@ import { FirstDirective } from './first.directive';
 import { EightComponent } from './eight/eight.component';
 import { NinthComponent } from './ninth/ninth.component';
 import { TenthComponent } from './tenth/tenth.component';
-import { SqrtPipe } from './app.sqrt';
+
 import { HomeComponent } from './home/home.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { MyserviceService } from './myservice.service';
@@ -31,6 +31,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
+import { SqrtPipe } from './app.sqrt';
 @NgModule({
   declarations: [
     AppComponent,

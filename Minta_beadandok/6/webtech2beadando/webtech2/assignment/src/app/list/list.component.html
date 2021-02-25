@@ -1,0 +1,28 @@
+<html>
+<body>
+
+<mat-panel-title class="mat-title"> Felvett Karakterek </mat-panel-title>
+
+<p></p>
+
+<table class="mat-elevation-z8">
+  <thead>
+  <tr>
+    <th>Név</th>
+    <th>Frakció</th>
+    <th>Klassz</th>
+    <th>Item Level</th>
+  </tr>
+  </thead>
+  <tr *ngFor="let employee of Employee">
+    <td>{{employee.name}}</td>
+    <td>{{employee.position}}</td>
+    <td>{{employee.office}}</td>
+    <td>{{employee.salary}}</td>
+  </tr>
+</table>
+
+
+</body>
+</html>
+

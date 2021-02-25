@@ -1,0 +1,50 @@
+<div class="container">
+  <table>
+
+    <tbody>
+    <tr class="table table-bordered">
+      <table>
+        <thead class="table-success">
+        <tr>
+          <th scope="col">Rental Id</th>
+          <th scope="col">Start</th>
+          <th scope="col">End</th>
+          <th scope="col">Clientele Id</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th>{{rentalData._id}}</th>
+          <td>{{rentalData.start | date: "yyyy-MM-dd"}}</td>
+          <td>{{rentalData.end | date: "yyyy-MM-dd"}}</td>
+          <td>{{rentalData.Clientele}}</td>
+        </tr>
+        <tr>
+          <th colspan="5">Rented Vehicles</th>
+        </tr>
+        <tr *ngFor="let id of rentalData.RentedVehicle">
+          <td colspan="5">{{id}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </tr>
+    </tbody>
+  </table>
+  <div class="card-body" [hidden]="submitted">
+    <form [formGroup]="closureForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Tick if vehicle was damaged</label>
+        <input class="form-control" type="checkbox" formControlName="damage">
+        <label>Enter total miles ran</label>
+        <input class="form-control" type="number" formControlName="miles">
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="!closureForm.valid || submitted === true" >Create Bill and Close Rental</button>
+      </div>
+    </form>
+  </div>
+
+  <div [hidden]="!submitted">
+      Total amount owed: {{bill}}
+  </div>
+</div>

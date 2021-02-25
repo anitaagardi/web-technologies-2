@@ -1,0 +1,45 @@
+<div class="container">
+  <!-- No data message -->
+  <p *ngIf="Rentals.length <= 0" class="no-data text-center">There is no rental added yet!</p>
+  <!-- Employee list -->
+  <table *ngIf="Rentals.length > 0">
+
+    <tbody>
+    <tr class="table table-bordered" *ngFor="let rental of Rentals; let i = index">
+      <table>
+        <thead class="table-success">
+        <tr>
+          <th scope="col">Rentals</th>
+          <th scope="col">Start</th>
+          <th scope="col">End</th>
+          <th scope="col">Clientele Id</th>
+          <th scope="col center">Update</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <th scope="row">{{rental._id}}</th>
+          <td>{{rental.start | date: "yyyy-MM-dd"}}</td>
+          <td>{{rental.end | date: "yyyy-MM-dd"}}</td>
+          <td>{{rental.Clientele}}</td>
+          <td class="text-center edit-block">
+          <span class="edit" [routerLink]="['/edit-rental/', rental._id]">
+            <button type="button" class="btn btn-success btn-sm">Close Rental</button>
+          </span>
+            <span class="delete" (click)="removeRental(rental, i)">
+            <button type="button" class="btn btn-danger btn-sm">Delete</button>
+          </span>
+          </td>
+        </tr>
+        <tr>
+          <th colspan="5">Rented Vehicles</th>
+        </tr>
+        <tr *ngFor="let id of rental.RentedVehicle">
+          <td colspan="5">{{id}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </tr>
+    </tbody>
+  </table>
+</div>

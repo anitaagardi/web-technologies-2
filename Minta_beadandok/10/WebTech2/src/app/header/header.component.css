@@ -1,0 +1,12 @@
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.mat-menu-panel {
+  background: #3f51b5!important;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

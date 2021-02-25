@@ -1,0 +1,43 @@
+
+body {
+  background-color: cadetblue;
+  text-align: center;
+  padding: 15px;
+
+}
+
+.form {
+  alignment: center;
+}
+
+input {
+  margin: 5px;
+  padding: 10px;
+}
+
+.input {
+  margin: 5px;
+  padding: 10px;
+}
+
+.formbox{
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+  background-color : white;
+}
+
+.btn:hover {
+  background-color:chartreuse;
+  color: black;
+}
+
+.btn {
+  width: max-content;
+  alignment: center;
+  margin: 5px;
+  padding: 10px 40px 10px 40px;
+  color: whitesmoke;
+  background-color: dodgerblue;
+}

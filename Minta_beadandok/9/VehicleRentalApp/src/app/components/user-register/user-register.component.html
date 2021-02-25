@@ -1,0 +1,36 @@
+<div class="row justify-content-center">
+  <div class="col-md-4 register-employee">
+    <!-- form card register -->
+    <div class="card-body">
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="inputName">Username</label>
+          <input class="form-control" type="text" formControlName="username">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="myForm.username.errors?.required">
+            Username is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputPassword">Password</label>
+          <input class="form-control" type="password" formControlName="password">
+          <!-- error -->
+        </div>
+
+        <div class="form-group">
+          <label>EmployeeId</label>
+          <select class="custom-select form-control" (change)="updateSelectedEmployee($event.target.value)">
+            <option *ngFor="let employee of employees" value="{{employee._id}}">{{employee._id}}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="!userForm.valid">Register</button>
+        </div>
+      </form>
+
+    </div>
+  </div><!-- form card register -->
+</div>

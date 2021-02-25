@@ -1,0 +1,16 @@
+<h1>Manufacturer List</h1>
+<mat-accordion multi="true" *ngIf="manufacturers.length > 0">
+  <mat-expansion-panel *ngFor="let manufacturer of manufacturers">
+    <mat-expansion-panel-header>
+      <mat-panel-title>{{manufacturer.Name}}</mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-list>
+      <mat-list-item><b>Country:</b> {{manufacturer.Country}}</mat-list-item>
+      <mat-list-item><b>Founded:</b> {{manufacturer.Founded}}</mat-list-item>
+    </mat-list>
+    <mat-action-row>
+      <a mat-button color="primary" [routerLink]="['/manufacturer/edit/', manufacturer.id]" >Edit</a>
+      <button mat-button color="warn" (click)="onDelete(manufacturer.id)">Delete</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>

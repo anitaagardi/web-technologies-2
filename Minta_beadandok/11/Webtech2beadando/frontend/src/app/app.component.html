@@ -1,0 +1,24 @@
+<p>
+    <mat-toolbar class="toolbar" color="primary">
+      <button mat-icon-button [matMenuTriggerFor]="routingMenu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #routingMenu="matMenu" xPosition="after">
+        <button
+        mat-menu-item
+        routerLinkActive="active"
+        routerLink="list"><mat-icon>list</mat-icon>List books</button>
+        <button
+        mat-menu-item
+        routerLinkActive="active"
+        routerLink="form"><mat-icon>add</mat-icon>Submit a book</button>
+      </mat-menu>
+      <span>Webtech 2</span>
+      <span class="spacer"></span>
+
+    </mat-toolbar>
+</p>
+
+<p>
+  <router-outlet></router-outlet>
+</p>

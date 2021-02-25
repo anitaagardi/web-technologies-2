@@ -1,0 +1,127 @@
+<form [formGroup]="bookForm">
+  <mat-card class="book-card">
+    <mat-card-header>
+      <mat-card-title>Submit a book</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Title</mat-label>
+            <input name="book.title" matInput [(ngModel)]="book.title" formControlName="title" autocomplete="off">
+            <mat-error *ngIf="bookForm.controls['title'].hasError('required')">
+              Title is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Author first name</mat-label>
+            <input name="book.firstName" matInput [(ngModel)]="book.firstName" placeholder="First name" formControlName="firstName" autocomplete="off">
+            <mat-error *ngIf="bookForm.controls['firstName'].hasError('required')">
+              First name is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Author last name</mat-label>
+            <input name="book.lastName" [(ngModel)]="book.lastName" matInput placeholder="Last name" formControlName="lastName" autocomplete="off">
+            <mat-error *ngIf="bookForm.controls['lastName'].hasError('required')">
+              Last name is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Publisher</mat-label>
+            <input name="book.publisher" [(ngModel)]="book.publisher" matInput placeholder="Publisher" formControlName="publisher" autocomplete="off">
+            <mat-error *ngIf="bookForm.controls['publisher'].hasError('required')">
+              Publisher is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Release date</mat-label>
+          <input name="book.releaseDate" [(ngModel)]="book.releaseDate" matInput [matDatepicker]="picker" formControlName="releaseDate" autocomplete="off">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="bookForm.controls['releaseDate'].hasError('required')">
+            Release date is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Description</mat-label>
+          <textarea name="book.description" [(ngModel)]="book.description" matInput autocomplete="off" formControlName="description"></textarea>
+          <mat-error *ngIf="bookForm.controls['description'].hasError('required')">
+            Description is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Page number</mat-label>
+            <input
+            name="book.pageNumber"
+            [(ngModel)]="book.pageNumber"
+            matInput
+            type="number"
+            placeholder="1"
+            min="1"
+            pattern="\d+"
+            oninput="validity.valid||(value='');"
+            formControlName="pageNumber"
+            autocomplete="off">
+            <mat-error *ngIf="bookForm.controls['pageNumber'].hasError('required')">
+              Page number is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Amount to submit</mat-label>
+            <input
+            name="book.amount"
+            [(ngModel)]="book.amount"
+            matInput
+            type="number"
+            placeholder="1"
+            min="1"
+            pattern="\d+"
+            oninput="validity.valid||(value='');"
+            formControlName="amount"
+            value="1"
+            autocomplete="off">
+            <mat-error *ngIf="bookForm.controls['amount'].hasError('required')">
+              Amount is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-radio-group name="book.coverType" [(ngModel)]="book.coverType" formControlName="coverType">
+            <mat-label>Cover type</mat-label>
+            <mat-radio-button value="Paperback">Paperback</mat-radio-button>
+            <mat-radio-button value="Hardcover">Hardcover</mat-radio-button>
+            <mat-radio-button value="Hardcover with dust jacket">Hardcover with dust jacket</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button [disabled]="bookForm.invalid" mat-raised-button color="primary" type="button" (click)="onSubmit()">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

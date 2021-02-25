@@ -1,0 +1,37 @@
+/* You can add global styles to this file, and also import other style files */
+
+.toolbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+
+html, body { height: 100%; }
+
+body {
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    position: absolute;
+    top: 64px;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    z-index: 150;
+}
+
+mat-form-field { width: 50vw; }
+
+table {
+    width: 100%;
+    word-wrap: break-word;
+    table-layout:fixed;
+}
+
+.mat-row {
+    height: auto;
+}
+
+.mat-cell {
+    padding: 15px 15px 15px 15px !important;
+}

@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+  <div class="col-md-4 register-employee">
+    <!-- form card register -->
+    <div class="card-body">
+      <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="inputName">Name</label>
+          <input class="form-control" type="text" formControlName="name">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="myForm.name.errors?.required">
+            Name is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputEmail3">Email</label>
+          <input class="form-control" type="text" formControlName="email">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="myForm.email.errors?.required">
+            Enter your email.
+          </div>
+          <div class="invalid-feedback" *ngIf="myForm.email.errors?.pattern">
+            Enter valid email.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputPassword3">Designation</label>
+          <select class="custom-select form-control" (change)="updateProfile($event.target.value)"
+                  formControlName="designation">
+            <option value="">Choose...</option>
+            <option *ngFor="let employeeProfile of EmployeeProfile" value="{{employeeProfile}}">{{employeeProfile}}
+            </option>
+          </select>
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="myForm.designation.errors?.required">
+            Choose designation.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputVerify3">Mobile No</label>
+          <input class="form-control" type="text" formControlName="phoneNumber">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="submitted && myForm.phoneNumber.errors?.required">
+            Enter your phone number.
+          </div>
+          <div class="invalid-feedback" *ngIf="submitted && myForm.phoneNumber.errors?.pattern">
+            Enter Numbers Only
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="!employeeForm.valid">Register</button>
+        </div>
+      </form>
+
+    </div>
+  </div><!-- form card register -->
+</div>

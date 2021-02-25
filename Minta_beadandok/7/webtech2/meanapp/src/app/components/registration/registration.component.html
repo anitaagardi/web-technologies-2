@@ -1,0 +1,47 @@
+<mat-toolbar color="primary" class=" mat-elevation-z15">
+
+  <span>
+    <h1 class="title">Dolgok nyilvántartó rendszere</h1>
+  </span>
+  <span>
+    <a mat-raised-button routerLinkActive="active" routerLink="/login">Bejelentkezés</a>
+  </span>
+</mat-toolbar>
+
+<mat-card class="card">
+  <mat-card-title>Regisztráció:</mat-card-title>
+  <mat-card-content>
+  <form [formGroup]="createForm" (ngSubmit)="onSubmit()" class="form" >
+
+    <mat-form-field >
+      <input matInput type="text" placeholder="Name" formControlName="name">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field >
+      <input matInput type="text" placeholder="Username" formControlName="userName">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field >
+      <input matInput  placeholder="Password" type="password" formControlName="password">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field >
+      <input matInput  placeholder="E-mail" type="text" formControlName="email">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field >
+      <input matInput  placeholder="Birthdate" type="date" formControlName="bDate">
+    </mat-form-field>
+
+    <br>
+
+    <button color="primary" mat-raised-button type="submit" class="submit" >Registrate</button>
+
+  </form>
+</mat-card-content>
+</mat-card>
+

@@ -1,0 +1,117 @@
+
+@charset "UTF-8";
+/*
+body {
+  font:20px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  color:#fafaff;
+  padding:0;
+  margin:0;
+  background-color:#262626;
+  text-align: center;
+}
+*/
+/*
+.header{
+  padding-top:10px;
+  min-height:70px;
+  border-bottom:red 3px solid;
+  position:sticky;
+  top: 0;
+  overflow: hidden;
+  background-color:#262626;
+}
+*//*
+#table {
+  text-align: center;
+  margin: auto;
+  width: 90%;
+  border: red 3px solid;
+  alignment: center;
+  border: none;
+}
+
+.list {
+  margin: auto;
+  width: 37.5%;
+  text-align: center;
+  padding: 12.5px;
+  font-size: 20px;
+  border: red 3px solid;
+
+}
+
+.th {
+  border: none;
+  font-size: 20px;
+  height: 25px;
+}
+
+
+#nav{
+  align-items: center;
+  padding:0 50px;
+  border-bottom:red 3px solid;
+}
+
+#nav a{
+  color:#fff;
+  font-size:15px;
+  text-decoration:none;
+  display: inline-block;
+  padding: 4px 10px;
+  margin-left: 5px;
+}
+
+#nav a:hover{
+  background:rgba(255,0,0,0.5);
+  color:#fff;
+  text-decoration:none;
+  transition: 0.3s;
+}
+
+
+.inputbox {
+  width: 37.5%;
+  padding: 10px;
+  border: 2px solid red;
+  border-radius: 5px;
+  box-sizing: border-box;
+
+}
+
+.buttons {
+  margin: 5px;
+  padding: 5px;
+  background: #262626;
+}
+*/
+
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// **Be sure that you only ever include this mixin once!**
+@include mat-core();
+
+// Define the default theme (same as the example above).
+$candy-app-primary: mat-palette($mat-indigo);
+$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
+
+// Include the default theme styles.
+@include angular-material-theme($candy-app-theme);
+
+
+// Define an alternate dark theme.
+$dark-primary: mat-palette($mat-blue-grey);
+$dark-accent:  mat-palette($mat-amber, A200, A100, A400);
+$dark-warn:    mat-palette($mat-deep-orange);
+$dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+// Include the alternative theme styles inside of a block with a CSS class. You can make this
+// CSS class whatever you want. In this example, any component inside of an element with
+// `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
+.unicorn-dark-theme {
+  @include angular-material-theme($dark-theme);
+}

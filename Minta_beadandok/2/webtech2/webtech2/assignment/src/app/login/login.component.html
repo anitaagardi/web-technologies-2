@@ -1,0 +1,44 @@
+<html>
+<body>
+<mat-card class="example-card">
+  <mat-card-title>Bejelentkezés</mat-card-title>
+
+
+<form class="form" [formGroup]= "loginForm" (ngSubmit)="onSubmit()" class="form">
+
+
+
+  <p></p>
+
+  <mat-form-field >
+
+    <input matInput type="text" placeholder="Felhasználónév" formControlName="uname">
+
+  </mat-form-field>
+
+  <br>
+
+  <mat-form-field >
+    <input matInput  placeholder="Jelszó" type="password" formControlName="password">
+
+  </mat-form-field>
+
+  <br>
+
+  <button mat-raised-button type="submit" [disabled]="!loginForm.valid" class="btn"> Bejelentkezés </button>
+
+  <p></p>
+
+
+
+  <button mat-raised-button routerLinkActive="active" class="btn" routerLink="/register">Regisztráció</button>
+
+</form>
+
+
+</mat-card>
+</body>
+</html>
+
+
+

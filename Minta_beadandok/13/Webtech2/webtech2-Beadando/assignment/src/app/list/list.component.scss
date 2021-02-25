@@ -1,0 +1,82 @@
+body {
+  background-image: url(kep.jpg) ;
+  background-size: cover;
+  background-position:center;
+  height:720px;
+  margin: auto;
+
+
+
+  padding: 100px ;
+}
+
+.mat-elevation-z8 {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  color: white;
+  margin: auto;
+  width: 90%;
+  border: dodgerblue 3px solid;
+  alignment: center;
+}
+
+th {
+  background-color: dodgerblue;
+}
+
+th, td {
+  padding: 15px;
+  text-align: center;
+}
+
+td {
+  background-color: seagreen;
+}
+
+
+.mat-toolbar{
+  top: 8px;
+  left:10px;
+  height: 64px;
+  position: absolute;
+  z-index: 100;
+  width: 99%;
+  background-color: seagreen;
+  margin: auto;
+}
+
+.actbtnn:hover {
+  background-color: dodgerblue;
+  color: black;
+}
+
+
+
+
+.actbtnn {
+  padding: 10px 40px 10px 40px;
+
+  width: max-content;
+  alignment: center;
+  margin-left: 1580px;
+
+  //  padding: 5px;
+  color: white;
+  background-color: green;
+}
+.actbtn:hover {
+  background-color: dodgerblue;
+  color: black ;
+}
+
+.actbtn {
+  padding: 10px 40px 10px 40px;
+
+  width: max-content;
+  alignment: center;
+  margin-left: -5px;
+
+  //  padding: 5px;
+  color: white;
+  background-color: green;
+}

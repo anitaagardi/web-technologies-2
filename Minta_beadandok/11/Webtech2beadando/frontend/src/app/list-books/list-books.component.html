@@ -1,0 +1,67 @@
+<h1 class="mat-h1">The list of submitted books</h1>
+
+<mat-form-field appearance="outline">
+  <mat-label><mat-icon>search</mat-icon> Search</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Searh" autocomplete="off">
+</mat-form-field>
+
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" id="participantsTable">
+
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef> Title</th>
+    <td mat-cell *matCellDef="let book">{{book.title}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef> First name </th>
+    <td mat-cell *matCellDef="let book"> {{book.firstName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef> Last name </th>
+    <td mat-cell *matCellDef="let book"> {{book.lastName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="publisher">
+    <th mat-header-cell *matHeaderCellDef> Publisher </th>
+    <td mat-cell *matCellDef="let book"> {{book.publisher}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="pageNumber">
+    <th mat-header-cell *matHeaderCellDef> Page number </th>
+    <td mat-cell *matCellDef="let book"> {{book.pageNumber}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="coverType">
+    <th mat-header-cell *matHeaderCellDef> Cover type </th>
+    <td mat-cell *matCellDef="let book"> {{book.coverType}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="releaseDate">
+    <th mat-header-cell *matHeaderCellDef> Release date </th>
+    <td mat-cell *matCellDef="let book"> {{book.releaseDate}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef> Description </th>
+    <td mat-cell *matCellDef="let book"> {{book.description}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="amount">
+    <th mat-header-cell *matHeaderCellDef> Amount submitted </th>
+    <td mat-cell *matCellDef="let book">
+      {{book.amount}}
+      <div class="row">
+        <input matInput type="number" value="0" placeholder="0" autocomplete="off" [(ngModel)]="input" #updateAmount="ngModel">
+        <button mat-icon-button class="delete-button" [disabled]="updateAmount.value === 0" (click)="updateBook(book, updateAmount.value)"><mat-icon>add</mat-icon></button>
+        <button mat-icon-button class="delete-button" (click)="deleteBook(book)"><mat-icon>delete</mat-icon></button>
+      </div>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+</table>
+<mat-paginator [pageSizeOptions]="[50, 100, 200, 500]" showFirstLastButtons></mat-paginator>

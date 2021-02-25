@@ -1,0 +1,50 @@
+<html>
+<body>
+
+
+
+<mat-toolbar >
+<mat-toolbar-row>
+
+  <button mat-raised-button routerLinkActive="active" routerLink="/list" class="actbtn" >Listázás</button>
+
+  <button mat-raised-button routerLinkActive="active" (click)=logout() class="actbtnn" >Kijelentkezés</button>
+
+</mat-toolbar-row>
+</mat-toolbar>
+  <p></p>
+
+
+  <p></p>
+<mat-card class="example-card">
+  <mat-panel-title class="mat-title"> Kifogott hal hozzáadása </mat-panel-title>
+
+    <form [formGroup]="createForm" (ngSubmit)="onSubmit()" class="form" >
+      <mat-form-field >
+        <input matInput type="text" placeholder="Vízterület neve" formControlName="lakeName">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field >
+        <input matInput  placeholder="Víztérkód" type="text"  formControlName="lakeCode">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field >
+        <input matInput  placeholder="Kifogott halfaj" type="text"  formControlName="fish">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field >
+        <input matInput  placeholder="Hal súlya(kg)" type="text" formControlName="weight">
+      </mat-form-field>
+      <br>
+
+      <button mat-raised-button type="submit"  class="btn" >Hozzáadás</button>
+
+    </form>
+
+  </mat-card>
+
+</body>
+</html>

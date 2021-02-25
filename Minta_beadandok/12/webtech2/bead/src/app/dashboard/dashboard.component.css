@@ -1,0 +1,64 @@
+body {
+  background-color: cadetblue;
+  text-align: center;
+  width: auto;
+
+}
+
+.mat-table{
+
+  text-align: center;
+  color: black;
+  max-height: 800px;
+  margin: auto;
+  width: 100%;
+  border: black 1px;
+  alignment: center;
+}
+
+th {
+  background-color: black;
+  color: white;
+}
+
+th, td {
+  padding: 5px;
+  text-align: center;
+}
+
+td {
+  background-color: chartreuse;
+}
+
+.dbtn{
+  display: inline-block;
+  background-color: deepskyblue;
+  color: black;
+  text-align: center;
+  padding: 20px;
+  margin: 5px;
+
+}
+
+.dbtn:hover {
+  background-color: darkorange;
+
+}
+
+.btn{
+
+  display: inline-block;
+  background-color: deepskyblue;
+  color: black;
+  width : 200px;
+  text-align: center;
+  padding: 20px;
+  margin: 5px;
+
+
+}
+
+.btn:hover {
+  background-color: crimson;
+
+}

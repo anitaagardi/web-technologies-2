@@ -1,0 +1,37 @@
+<html>
+<body>
+<mat-toolbar >
+  <mat-toolbar-row>
+
+    <button mat-raised-button routerLinkActive="active"  routerLink="/add" class="actbtn" >Vissza</button>
+
+    <button mat-raised-button routerLinkActive="active" (click)=logout() class="actbtnn" >Kijelentkezés</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-card class="example-card">
+  <mat-card-title>Fogási napló</mat-card-title>
+
+
+<p></p>
+
+<table class="mat-elevation-z8">
+  <thead>
+  <tr>
+    <th>Vízterület neve</th>
+    <th>Víztérkód</th>
+    <th>Kifogott halfaj</th>
+    <th>Hal súlya(kg)</th>
+  </tr>
+  </thead>
+  <tr *ngFor="let lakee of Lakee">
+    <td>{{lakee.lakeName}}</td>
+    <td>{{lakee.lakeCode}}</td>
+    <td>{{lakee.fish}}</td>
+    <td>{{lakee.weight}}</td>
+  </tr>
+</table>
+
+</mat-card>
+</body>
+</html>
+

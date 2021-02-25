@@ -1,0 +1,88 @@
+.mat-title {
+  color: gray;
+}
+.mat-toolbar{
+  top: 8px;
+  left:10px;
+  height: 64px;
+  position: absolute;
+  z-index: 100;
+  width: 99%;
+  background-color: darkgrey;
+  margin: auto;
+}
+body {
+
+  background-image: url(image3.jpg) ;
+  background-size: cover;
+  background-position:center;
+  height:1080px;
+  margin: auto;
+  padding: 100px ;
+}
+
+
+input {
+  margin: 5px;
+  padding: 10px;
+}
+
+.input {
+  margin: 5px;
+  padding: 10px;
+}
+
+.actbtn:hover {
+  background-color: #ffda1e;
+  color: black;
+}
+
+.actbtnn:hover {
+  background-color: #ffda1e;
+  color: black;
+}
+
+
+.actbtn {
+  padding: 10px 40px 10px 40px;
+
+  width: max-content;
+  alignment: center;
+  margin-left: -5px;
+
+//  padding: 5px;
+  color: white;
+  background-color: black;
+}
+.actbtnn {
+  padding: 10px 40px 10px 40px;
+
+  width: max-content;
+  alignment: center;
+  margin-left: 1580px;
+
+  //  padding: 5px;
+  color: white;
+  background-color: black;
+}
+
+
+.btn:hover {
+  background-color: #ffda1e;
+  color: black;
+}
+
+.btn {
+  width: max-content;
+  alignment: right;
+  margin: 5px;
+  padding: 10px 40px 10px 40px;
+  background-color: black;
+  color: white;
+}
+
+mat-card{
+  margin: 0 auto;
+  width: calc(100% - 1200px);
+  text-align: center;
+}

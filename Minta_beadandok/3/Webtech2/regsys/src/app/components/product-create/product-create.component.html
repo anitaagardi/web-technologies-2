@@ -1,0 +1,35 @@
+<mat-card class="menucard">
+  <mat-card-content>
+      <h2 class="title">Add product</h2>
+ <button mat-raised-button routerLinkActive="active" routerLink="/product-list" class="menubtn">Porduct list</button>
+ <button mat-raised-button routerLinkActive="active" routerLink="/account-info" class="menubtn">Account</button>
+ <button mat-raised-button  routerLinkActive="active" (click)=logout() class="logout">Log out</button>
+</mat-card-content>
+</mat-card>
+
+
+<mat-card class="card">
+  <h2 class="title">Add new product</h2>
+  <mat-card-content>
+  <form [formGroup]="createForm" (ngSubmit)="onSubmit()" class="form" >
+
+    <mat-form-field >
+      <input matInput type="text" placeholder="Name" formControlName="name">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field >
+      <input matInput  placeholder="Amount" type="text"  formControlName="amount">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field >
+      <input matInput  placeholder="Cost" type="text" formControlName="cost">
+    </mat-form-field>
+    <br>
+
+    <button color="primary" mat-raised-button type="submit"  class="submit" >Submit</button>
+
+  </form>
+</mat-card-content>
+</mat-card>

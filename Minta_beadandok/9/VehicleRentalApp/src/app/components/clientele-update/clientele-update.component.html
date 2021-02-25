@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+  <div class="col-md-4 register-employee">
+    <!-- form card register -->
+
+    <div class="card-header">
+      <h3 class="mb-0">Edit Clientele</h3>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="inputName">Name</label>
+          <input class="form-control" type="text" formControlName="name">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="myForm.name.errors?.required">
+            Name is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputEmail3">Email</label>
+          <input class="form-control" type="text" formControlName="email">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="myForm.email.errors?.required">
+            Enter your email.
+          </div>
+          <div class="invalid-feedback" *ngIf="myForm.email.errors?.pattern">
+            Enter valid email.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputAddress">Address</label>
+          <input class="form-control" type="text" formControlName="address">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="myForm.address.errors?.required">
+            Address is required.
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="inputVerify3">Mobile No</label>
+          <input class="form-control" type="text" formControlName="phoneNumber">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="submitted && myForm.phoneNumber.errors?.required">
+            Enter your phone number.
+          </div>
+          <div class="invalid-feedback" *ngIf="submitted && myForm.phoneNumber.errors?.pattern">
+            Enter Numbers Only
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="!editForm.valid">Update</button>
+        </div>
+      </form>
+
+    </div>
+  </div><!-- form card register -->
+</div>

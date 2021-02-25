@@ -1,0 +1,22 @@
+<h1>{{title}}</h1>
+<form (submit)="onSaveManufacturer(manufacturerForm)" #manufacturerForm="ngForm">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput type="text" name="name" [ngModel]="manufacturer?.Name" required #Name="ngModel">
+    <mat-error *ngIf="Name.invalid">Please enter the name of manufacturer.</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Country</mat-label>
+    <input matInput type="text" name="country" [ngModel]="manufacturer?.Country" required #Country="ngModel">
+    <mat-error *ngIf="Country.invalid">Please enter the country of manufacturer.</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Founded</mat-label>
+    <input matInput type="text" name="founded" [ngModel]="manufacturer?.Founded" required #Founded="ngModel">
+    <mat-error *ngIf="Founded.invalid">Please enter the founded of manufacturer.</mat-error>
+  </mat-form-field>
+  <br>
+  <button type="submit" class="btn btn-success" [disabled]="!manufacturerForm.form.valid">Save</button>
+</form>

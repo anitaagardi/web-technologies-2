@@ -1,0 +1,58 @@
+<mat-toolbar color="primary" class=" mat-elevation-z15">
+  <span>
+    <h1 class="title">Dolgok nyilvántartó rendszere</h1>
+  </span>
+  <span>
+    <a mat-raised-button routerLinkActive="active" routerLink="/product-list" class="toolbarButton">Termék lista</a>
+    <a mat-raised-button routerLinkActive="active" routerLink="/product-create"class="toolbarButton">Termék felvitele</a>
+  </span>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav">
+  <mat-sidenav #start mode="over" >Start</mat-sidenav>
+    <mat-card class="datacard">
+        <mat-card-title>
+          Személyes adatok:
+        </mat-card-title>
+        <mat-card-content>
+          <div>Név: {{this.name}}</div>
+          <div>Felhasználónév: {{this.username}}</div>
+          <div>E-mail cím: {{this.email}}</div>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="logoutcard">
+    <mat-card-content>
+      <a mat-button color="primary" routerLinkActive="active" (click)=logout() class="logout">Kijelentkezés</a>
+    </mat-card-content>
+  </mat-card>
+</mat-sidenav-container>
+
+
+
+<mat-card class="card">
+  <mat-card-title>Termék adatainak frissítése:</mat-card-title>
+  <mat-card-content>
+  <form [formGroup]="createForm" (ngSubmit)="onSubmit()" class="form" >
+
+    <mat-form-field >
+      <input matInput type="text" placeholder="Name" formControlName="name">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field >
+      <input matInput  placeholder="Amount" type="text"  formControlName="amount">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field >
+      <input matInput  placeholder="Cost" type="text" formControlName="cost">
+    </mat-form-field>
+    <br>
+
+    <button color="primary" mat-raised-button type="submit"  class="submit" >Frissít</button>
+
+  </form>
+</mat-card-content>
+</mat-card>
+

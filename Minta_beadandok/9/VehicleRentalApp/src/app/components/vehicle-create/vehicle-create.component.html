@@ -1,0 +1,97 @@
+<div class="row justify-content-center">
+  <div class="col-md-4 register-employee">
+    <!-- form card register -->
+    <div class="card-body">
+      <form [formGroup]="vehicleForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label>Type</label>
+          <input class="form-control" type="text" formControlName="type">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="myForm.type.errors?.required">
+            Type is required.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label >Manufacturer</label>
+          <input class="form-control" type="text" formControlName="manufacturer">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="myForm.manufacturer.errors?.required">
+            Enter manufacturer.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label >Plate</label>
+          <input class="form-control" type="text" formControlName="plate">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="myForm.plate.errors?.required">
+            Enter plate number.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>VIN (Vehicle Identification Number)</label>
+          <input class="form-control" type="text" formControlName="vin">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="myForm.vin.errors?.required">
+            Enter VIN.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Date of Acquiry</label>
+          <input class="form-control" type="date" formControlName="acquired">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="myForm.acquired.errors?.required">
+            Enter Date of Acquiry.
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label>Rental Fee (per day)</label>
+          <input class="form-control" type="number" formControlName="rentalFee">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="submitted && myForm.rentalFee.errors?.required">
+            Enter rental fee.
+          </div>
+          <div class="invalid-feedback" *ngIf="submitted && myForm.rentalFee.errors?.pattern">
+            Enter Numbers Only
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Miles Driven</label>
+          <input class="form-control" type="number" formControlName="miles">
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="submitted && myForm.miles.errors?.required">
+            Enter miles driven.
+          </div>
+          <div class="invalid-feedback" *ngIf="submitted && myForm.miles.errors?.pattern">
+            Enter Numbers Only
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label >Status</label>
+          <select class="custom-select form-control" (change)="updateStatus($event.target.value)"
+                  formControlName="status">
+            <option value="">Choose...</option>
+            <option *ngFor="let vehicleStatus of VehicleStatus " value="{{vehicleStatus}}">{{vehicleStatus}}
+            </option>
+          </select>
+          <!-- error -->
+          <div class="invalid-feedback" *ngIf="myForm.status.errors?.required">
+            Choose status.
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="!vehicleForm.valid">Register</button>
+        </div>
+      </form>
+
+    </div>
+  </div><!-- form card register -->
+</div>

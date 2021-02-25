@@ -1,0 +1,73 @@
+.mat-title {
+  font-family: Impact, Charcoal, sans-serif;
+  color: gray;
+}
+
+mat-form-field{
+  font-family: Impact, Charcoal, sans-serif;
+  color: black;
+}
+
+body {
+  background: url(asd1.jpg);
+  background-size: cover;
+  background-position:center;
+  height:720px;
+  margin: 1px;
+  text-align: center;
+  padding: 15px;
+}
+
+.form {
+  font-family: Impact, Charcoal, sans-serif;
+  background-color: #073208;
+  alignment: center;
+  width: 300px;
+  margin-left: 625px;
+
+}
+
+input {
+  font-family: Impact, Charcoal, sans-serif;
+  margin: 5px;
+  padding: 10px;
+}
+
+.input {
+  margin: 5px;
+  padding: 10px;
+}
+
+.actbtn:hover {
+  background-color: darkgoldenrod;
+  color: black;
+}
+
+
+.actbtn {
+  padding: 10px 40px 10px 40px;
+ // padding-left: 25px;
+ // padding-right: 25px;
+  width: max-content;
+  alignment: center;
+  margin: 5px;
+//  padding: 5px;
+  color: whitesmoke;
+  background-color: darkolivegreen;
+}
+
+
+.btn:hover {
+  background-color: darkgoldenrod;
+  color: black;
+}
+
+.btn {
+  font-family: Impact, Charcoal, sans-serif;
+  width: max-content;
+  alignment: center;
+  margin: 5px;
+  padding: 10px 40px 10px 40px;
+  color: whitesmoke;
+  background-color: darkolivegreen;
+}

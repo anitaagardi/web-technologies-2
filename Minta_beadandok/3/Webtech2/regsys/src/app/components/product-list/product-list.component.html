@@ -1,0 +1,24 @@
+<mat-card class="menucard">
+  <mat-card-content>
+      <h2 class="title">Product list</h2>
+ <button mat-raised-button routerLinkActive="active" routerLink="/product-create" class="menubtn">Add product</button>
+ <button mat-raised-button routerLinkActive="active" routerLink="/account-info" class="menubtn">Account</button>
+ <button mat-raised-button  routerLinkActive="active" (click)=logout() class="logout">Log out</button>
+</mat-card-content>
+</mat-card>
+
+
+<mat-sidenav-container class="sidenav">
+<div class="list">
+  <mat-card class="cardlist" *ngFor="let product of Products; let i= index">
+    <mat-card-title class="title">
+      {{product.name}}
+    </mat-card-title>
+    <mat-card-content >
+      <div> In stock: {{product.amount}} </div>
+      <div> Price: {{product.cost}} Ft </div>
+    </mat-card-content>
+    <button mat-raised-button (click)=edit(i)>Edit</button>
+  </mat-card>
+</div>
+</mat-sidenav-container>

@@ -1,0 +1,45 @@
+<div class="container">
+<div class="form-group mb-4">
+  <input class="form-control" type="text" [(ngModel)]="searchText" placeholder="Search">
+</div>
+<table class="table table-hover" *ngIf="(customers | filter: searchText).length > 0; else noResults">
+  <thead>
+  <tr>
+    <td>#</td>
+    <td>Id</td>
+    <td>First Name</td>
+    <td>Last Name</td>
+    <td>Phone Number</td>
+    <td>ID Number</td>
+    <td>Zip Code</td>
+    <td>City</td>
+    <td>Street</td>
+    <td>House Number</td>
+    <td colspan="2">Actions</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let customer of customers | filter: searchText; let i = index">
+    <th scope="row">{{i + 1}}</th>
+    <td>{{ customer._id }}</td>
+    <td>{{ customer.first_name }}</td>
+    <td>{{ customer.last_name }}</td>
+    <td>{{ customer.phone_number }}</td>
+    <td>{{ customer.ID_Number }}</td>
+    <td>{{ customer.address.zip_code }}</td>
+    <td>{{ customer.address.city_ }}</td>
+    <td>{{ customer.address.street }}</td>
+    <td>{{ customer.address.house_number }}</td>
+    <td><a [routerLink]="['/customer-edit', customer._id]" class="btn btn-primary">Edit</a></td>
+    <td><a [routerLink]="['/borrowing', customer._id]" class="btn btn-primary">Borrow</a></td>
+    <td><a (click) = "deleteCustomer(customer._id, customer.ID_Number)" class="btn btn-danger" style="color: white">Delete</a></td>
+  </tr>
+  </tbody>
+</table>
+  <div *ngIf="DvDCheck">
+    <p style="color: red">This Customer: {{CustomerIDNum}} has a DVD Borrowed. You cannot delete it till the customer don't bring back the dvd has it.</p>
+  </div>
+<ng-template #noResults>
+  <p>No results found for "{{searchText}}".</p>
+</ng-template>
+</div>

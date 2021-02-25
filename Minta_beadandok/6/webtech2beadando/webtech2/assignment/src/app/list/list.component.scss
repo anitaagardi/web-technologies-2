@@ -1,0 +1,32 @@
+body {
+  background: url(asd4.jpg);
+  background-size: cover;
+  background-position:center;
+  height:720px;
+  margin: 1px;
+  text-align: center;
+  padding: 15px;
+}
+
+.mat-elevation-z8 {
+  font-family: Impact, Charcoal, sans-serif;
+  text-align: center;
+  color: white;
+  margin: auto;
+  width: 90%;
+  border: darkslategray 3px solid;
+  alignment: center;
+}
+
+th {
+  background-color: darkred;
+}
+
+th, td {
+  padding: 15px;
+  text-align: center;
+}
+
+td {
+  background-color: gray;
+}

@@ -1,0 +1,37 @@
+<ng2-slim-loading-bar color="blue"></ng2-slim-loading-bar>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown"  style="padding-top:7px">
+        <a style="cursor: pointer" href="#" id="navbarDropdown" class="nav-link dropdown-toggle"
+           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Customer & Customer options
+          <span class="caret"></span></a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a routerLink="customer-add" class="dropdown-item" routerLinkActive="active" style="cursor: pointer;">Upload Customer</a>
+          <a routerLink="customer-get" class="dropdown-item" routerLinkActive="active"  style="cursor: pointer;">Customers and borrowing</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown"  style="padding-top:7px">
+        <a style="cursor: pointer" href="#" id="navbarDropdown" class="nav-link dropdown-toggle"
+           role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">DVDs & DVD options
+          <span class="caret"></span></a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a routerLink="dvd-add" class="dropdown-item" routerLinkActive="active"  style="cursor: pointer;">Upload DVD</a>
+          <a routerLink="dvd-get" class="dropdown-item" routerLinkActive="active"  style="cursor: pointer;">Get DVDs and Update</a>
+      </div>
+      </li>
+      <li class="nav-item">
+        <a routerLink="bring-back" class="nav-link" routerLinkActive="active">
+          DVD Bring back
+        </a>
+      </li>
+      <li class="nav-item">
+        <a routerLink="borrow-list" class="nav-link" routerLinkActive="active">
+          Borrowed DVDs
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+  <router-outlet></router-outlet>
+

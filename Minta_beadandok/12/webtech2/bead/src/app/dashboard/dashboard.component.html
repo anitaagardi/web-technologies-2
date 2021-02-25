@@ -1,0 +1,35 @@
+<html>
+<body>
+<h1> A termékek listája  </h1>
+<h1> Ezen az oldalon található a termék nyílvántartó rendszer</h1><br>
+<h2>Elvégezhető műveletek : Új termékek nyílvántartásba vétele és törlése.</h2>
+<br>
+
+<table class="mat-table">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>Név</th>
+    <th>Mennyiség</th>
+    <th>Típus</th>
+    <th>Törlés</th>
+  </tr>
+  </thead>
+  <tr *ngFor="let product of products">
+    <td>{{product._id}}</td>
+    <td>{{product.name}}</td>
+    <td>{{product.quantity}}</td>
+    <td>{{product.producttype}}</td>
+    <td>
+      <button (click)="doDelete(product)" class="dbtn"> Törlés</button>
+    </td>
+  </tr>
+</table>
+
+
+<br>
+
+<button mat-raised-button routerLinkActive="active" class="btn" routerLink="/add-product">Új termék hozzáadása</button>
+<button mat-raised-button routerLinkActive="active" class="btn" routerLink="/login">Vissza</button>
+</body>
+</html>

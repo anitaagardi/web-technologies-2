@@ -1,0 +1,41 @@
+
+.card{
+  width:20%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.datacard{
+  margin: 20px;
+  width: 15vw
+}
+
+mat-form-field{
+  width: 20vw;
+}
+
+
+.logoutcard{
+  margin: 20px;
+  width: 15vw;
+}
+
+.logout{
+  width: 15vw;
+}
+.toolbarButton{
+  margin: 10px;
+}
+
+mat-sidenav-container {
+  position: fixed;
+  height: 100%;
+  min-height: 100%;
+  width: 20%;
+}
+
+.title{
+  margin: 10px;
+}
+
+

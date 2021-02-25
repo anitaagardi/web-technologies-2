@@ -1,0 +1,42 @@
+<mat-toolbar color="primary" class=" mat-elevation-z15">
+  <span>
+    <h1 class="title">Dolgok nyilvántartó rendszere</h1>
+  </span>
+  <span>
+    <a mat-raised-button routerLinkActive="active" routerLink="/product-create">Termék felvitele</a>
+  </span>
+</mat-toolbar>
+
+
+<mat-sidenav-container class="sidenav">
+  <mat-sidenav #start mode="over" >Start</mat-sidenav>
+    <mat-card class="card">
+        <mat-card-title>
+          Személyes adatok:
+        </mat-card-title>
+      <mat-card-content>
+        <div>Név: {{this.name}}</div>
+        <div>Felhasználónév: {{this.username}}</div>
+        <div>E-mail cím: {{this.email}}</div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="logoutcard">
+    <mat-card-content>
+      <a mat-button color="primary" routerLinkActive="active" (click)=logout() class="logout">Kijelentkezés</a>
+    </mat-card-content>
+  </mat-card>
+</mat-sidenav-container>
+
+<div class="list">
+  <mat-card class="cardlist" *ngFor="let product of Products; let i= index">
+    <mat-card-title>
+      {{product.name}}
+    </mat-card-title>
+    <mat-card-content>
+      <div> Elérhető darabszám: {{product.amount}} </div>
+      <div> Termék ár: {{product.cost}} Ft </div>
+    </mat-card-content>
+    <a color="primary" mat-raised-button (click)=edit(i)>Szerkesztés</a>
+  </mat-card>
+</div>

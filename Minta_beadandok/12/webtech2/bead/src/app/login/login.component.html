@@ -1,0 +1,33 @@
+<html>
+<body>
+
+<h1>Ezen az oldalon lehet regisztrálni és ha a regisztáció sikeres volt akkor a bejelentkezés után tovább lehet menni a Termék nyílvántartó rendszerre.</h1>
+<br>
+<p></p>
+
+
+<div class="formbox">
+
+  <h1>Bejelentkezés</h1>
+<form class="form" [formGroup]= "loginForm" (ngSubmit)="onSubmit()" class="form">
+
+
+  <mat-form-field >
+    Felhasználónév: <input matInput type="text" class="form-control" placeholder="Felhasználónév" formControlName="username">
+  </mat-form-field>
+  <br>
+  <mat-form-field >
+    Jelszó:     <input matInput type="password" class="form-control" placeholder="Jelszó" formControlName="password">
+  </mat-form-field>
+
+  <br>
+  <button mat-raised-button class="btn" type="submit" routerLinkActive="active"  >Bejelentkezés</button>
+  <p></p>
+
+</form>
+<button mat-raised-button class="btn" routerLinkActive="active"  routerLink="/register">Regisztrálás</button>
+</div>
+
+</body>
+</html>
+

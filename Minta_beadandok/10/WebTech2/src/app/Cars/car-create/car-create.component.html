@@ -1,0 +1,48 @@
+<h1>{{title}}</h1>
+<form (submit)="onSaveCar(carForm)" #carForm="ngForm">
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput type="text" name="name" [ngModel]="car?.Name" required #name="ngModel">
+    <mat-error *ngIf="name.invalid">Please enter the modelname of car.</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Consumption</mat-label>
+    <input matInput type="text" name="consumption" [ngModel]="car?.Consumption" required #consumption="ngModel">
+    <mat-error *ngIf="consumption.invalid">Please enter the consumption of car.</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Color</mat-label>
+    <input matInput type="text" name="color" [ngModel]="car?.Color" required #color="ngModel">
+    <mat-error *ngIf="color.invalid">Please enter the color of car.</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Manufacturer</mat-label>
+    <mat-select name="manufacturer" [ngModel]="car?.Manufacturer" required #manufacturer="ngModel">
+      <mat-option *ngFor="let manufacturer of manufacturers" [value]="manufacturer.Name">{{manufacturer.Name}}</mat-option>
+    </mat-select>
+    <mat-error *ngIf="manufacturer.invalid">Please enter the manufacturer of car.</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Available</mat-label>
+    <input matInput type="text" name="available" [ngModel]="car?.Available" required #available="ngModel">
+    <mat-error *ngIf="available.invalid">Please enter the available of car.</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Year</mat-label>
+    <input matInput type="text" name="year" [ngModel]="car?.Year" required #year="ngModel">
+    <mat-error *ngIf="year.invalid">Please enter the year of car.</mat-error>
+  </mat-form-field>
+  <br>
+  <mat-form-field>
+    <mat-label>Horsepower</mat-label>
+    <input matInput type="text" name="horsepower" [ngModel]="car?.Horsepower" required #horsepower="ngModel">
+    <mat-error *ngIf="horsepower.invalid">Please enter the horsepower of car.</mat-error>
+  </mat-form-field>
+  <br>
+  <button type="submit" class="btn btn-success" [disabled]="!carForm.form.valid">Save</button>
+</form>

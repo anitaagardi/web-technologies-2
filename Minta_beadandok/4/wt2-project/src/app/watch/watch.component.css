@@ -1,0 +1,41 @@
+.description-cell {
+  text-align: left;
+  margin: 10px auto;
+}
+
+.duration-cell {
+  text-align: center;
+}
+
+.duration-cell mat-icon {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 20px;
+}
+
+.spinner-container {
+  height: 360px;
+  width: 390px;
+  position: fixed;
+}
+
+.watches-table {
+  min-height: 360px;
+  height: 5%;
+  margin-top: 10px;
+}
+
+.spinner-container mat-spinner {
+  margin: 130px auto 0 auto;
+}
+
+.watch-page-content {
+  width: 75%;
+  text-align: center;
+  margin: 10px auto;
+}
+
+.value-filter {
+  font-size: 24px;
+  width: 50%;
+}

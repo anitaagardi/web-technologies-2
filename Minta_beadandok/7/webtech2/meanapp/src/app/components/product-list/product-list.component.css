@@ -1,0 +1,38 @@
+.card{
+  margin: 20px;
+  width: 15vw;
+  margin-top: 20px;
+}
+
+.cardlist{
+  margin: 20px;
+  width: 25vw
+}
+
+.sidenav{
+  width:20%;
+  height: 200%;
+}
+.logoutcard{
+  margin: 20px;
+  width: 15vw;
+}
+
+.logout{
+  width: 15vw;
+}
+
+mat-sidenav-container {
+  position: absolute;
+  height: 100%;
+  min-height: 100%;
+  width: 20%;
+}
+.title{
+  margin: 10px;
+}
+
+.list{
+  width: 100%;
+  margin-left: 40%;
+}
