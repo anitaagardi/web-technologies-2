@@ -1,0 +1,82 @@
+<div class="watch-page-content">
+  <mat-form-field class="value-filter">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Search">
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <mat-table class="watches-table" [dataSource]="dataSource"
+               matSort matSortDirection="asc" matSortDisableClear>
+
+
+
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+        <mat-cell *matCellDef="let animal">{{animal.name}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="age">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Age</mat-header-cell>
+        <mat-cell *matCellDef="let animal">{{animal.age}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="weight">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Weight</mat-header-cell>
+        <mat-cell *matCellDef="let animal">{{animal.weight}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="breed">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Breed</mat-header-cell>
+        <mat-cell *matCellDef="let animal">{{animal.breed}}</mat-cell>
+      </ng-container>
+
+       <ng-container matColumnDef="color">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Color</mat-header-cell>
+        <mat-cell *matCellDef="let animal">{{animal.color}}</mat-cell>
+      </ng-container>
+<!-- "increaseWeight", "increaseLifespan", "delete"]-->
+
+      <ng-container matColumnDef="lifespan">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Lifespan</mat-header-cell>
+        <mat-cell *matCellDef="let animal">{{animal.lifespan}}</mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="friendliness">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Friendliness</mat-header-cell>
+        <mat-cell *matCellDef="let animal">{{animal.friendliness}}</mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="increaseWeight">
+        <mat-header-cell *matHeaderCellDef>Increase Weight</mat-header-cell>
+        <mat-cell class="duration-cell" *matCellDef="let animal">
+          <button (click)="increaseWeight(animal)" mat-raised-button color="accent" >+1</button>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="increaseLifespan">
+        <mat-header-cell *matHeaderCellDef>Increase Lifespan</mat-header-cell>
+        <mat-cell class="duration-cell" *matCellDef="let animal">
+          <button (click)="increaseLifespan(animal)" mat-raised-button color="accent" >+1</button>
+        </mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+        <mat-cell class="duration-cell" *matCellDef="let animal">
+          <button (click)="delete(animal)" mat-raised-button color="warn" ><mat-icon>delete</mat-icon></button>
+        </mat-cell>
+      </ng-container>
+
+
+      <mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true"></mat-header-row>
+
+      <mat-row *matRowDef="let row; columns: columnsToDisplay"></mat-row>
+
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

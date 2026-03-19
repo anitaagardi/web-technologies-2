@@ -1,0 +1,32 @@
+<html>
+<body>
+<p></p>
+
+    <button mat-raised-button routerLinkActive="active" routerLink="/add" class="actbtn" >Hozzáadás</button>
+
+  <p></p>
+<mat-panel-title class="mat-title"> Alkalmazottak </mat-panel-title>
+
+<p></p>
+
+<table class="mat-elevation-z8">
+  <thead>
+  <tr>
+    <th>Név</th>
+    <th>Beosztás</th>
+    <th>Iroda</th>
+    <th>Fizetés</th>
+  </tr>
+  </thead>
+  <tr *ngFor="let employee of employees">
+    <td>{{employee.name}}</td>
+    <td>{{employee.position}}</td>
+    <td>{{employee.office}}</td>
+    <td>{{employee.salary}}</td>
+  </tr>
+</table>
+
+
+</body>
+</html>
+

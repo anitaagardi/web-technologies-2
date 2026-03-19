@@ -1,0 +1,68 @@
+<div class="watch-page-content">
+  <mat-form-field class="value-filter">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Rolex">
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <mat-table class="watches-table" [dataSource]="dataSource"
+               matSort matSortDirection="asc" matSortDisableClear>
+
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
+        <mat-cell *matCellDef="let watch">${{watch.price}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="brand">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Brand</mat-header-cell>
+        <mat-cell class="description-cell"
+             *matCellDef="let watch">{{watch.brand}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="model">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Model</mat-header-cell>
+        <mat-cell class="duration-cell"
+             *matCellDef="let watch">{{watch.model}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="gender">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Gender</mat-header-cell>
+        <mat-cell class="duration-cell"
+             *matCellDef="let watch">{{watch.gender}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="movement">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Movement</mat-header-cell>
+        <mat-cell class="duration-cell"
+             *matCellDef="let watch">{{watch.movement}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="caseMaterial">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Case Material</mat-header-cell>
+        <mat-cell class="duration-cell"
+             *matCellDef="let watch">{{watch.caseMaterial}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="increasePrice">
+        <mat-header-cell *matHeaderCellDef>Increase Price</mat-header-cell>
+        <mat-cell class="duration-cell" *matCellDef="let watch">
+          <button (click)="increasePrice(watch)" mat-raised-button color="accent" >+<mat-icon>attach_money</mat-icon>100</button>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+        <mat-cell class="duration-cell" *matCellDef="let watch">
+          <button (click)="delete(watch)" mat-raised-button color="warn" ><mat-icon>delete</mat-icon></button>
+        </mat-cell>
+      </ng-container>
+
+
+      <mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true"></mat-header-row>
+
+      <mat-row *matRowDef="let row; columns: columnsToDisplay"></mat-row>
+
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

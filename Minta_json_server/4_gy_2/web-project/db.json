@@ -1,0 +1,14 @@
+{
+  "animals": [
+    {
+      "id": "1",
+      "name": "name1",
+      "age": 12,
+      "weight": 52,
+      "breed": "breed1",
+      "color": "color1",
+      "lifespan": 15,
+      "friendliness": 50
+    }
+  ]
+}

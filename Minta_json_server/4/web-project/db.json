@@ -1,0 +1,31 @@
+{
+  "watches": [
+    {
+      "id": "2",
+      "price": 1300,
+      "brand": "brand2",
+      "model": "model2",
+      "gender": "female",
+      "movement": "movement2",
+      "caseMaterial": "casemaerial2"
+    },
+    {
+      "price": 1212,
+      "brand": "fhshfs",
+      "model": "fdsfds",
+      "gender": "M",
+      "movement": "quartz",
+      "caseMaterial": "plastic",
+      "id": "kWf8j8y"
+    },
+    {
+      "price": 1212,
+      "brand": "ruewoi",
+      "model": "vncx",
+      "gender": "M",
+      "movement": "quartz",
+      "caseMaterial": "plastic",
+      "id": "5QCkgTH"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "name1",
+      "neptunCode": "FSDJF",
+      "address": "address1",
+      "specialization": "fsdfds",
+      "age": 24
+    },
+    {
+      "id": "2",
+      "name": "name2",
+      "neptunCode": "FSDJF22",
+      "address": "address2",
+      "specialization": "fsdfds2",
+      "age": 32
+    }
+  ]
+}

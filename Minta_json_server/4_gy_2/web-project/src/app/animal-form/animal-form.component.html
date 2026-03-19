@@ -1,0 +1,71 @@
+<div class="example-container mat-elevation-z8">
+  <div class="title-card">
+    <mat-card>
+      <h1 class="mat-headline">Add watch</h1>
+    </mat-card>
+  </div>
+
+  <form [formGroup]="animalForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label>Name</mat-label>
+      <input type="text" matInput placeholder="Name" formControlName="name" required>
+      <mat-error *ngIf="animalForm.value.name.invalid">You must enter a valid value.</mat-error>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label>Age</mat-label>
+      <input type="number" matInput placeholder="Age" formControlName="age" required>
+      <mat-error *ngIf="animalForm.value.age.invalid">You must enter a valid value.</mat-error>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label>Weight</mat-label>
+      <input type="number" matInput placeholder="Weight" formControlName="weight" required>
+      <mat-error *ngIf="animalForm.value.weight.invalid">You must enter a valid value.</mat-error>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label>Breed</mat-label>
+      <input type="text" matInput placeholder="Breed" formControlName="breed" required>
+      <mat-error *ngIf="animalForm.value.breed.invalid">You must enter a valid value.</mat-error>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label>Color</mat-label>
+      <input type="text" matInput placeholder="Color" formControlName="color" required>
+      <mat-error *ngIf="animalForm.value.color.invalid">You must enter a valid value.</mat-error>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label>Lifespan</mat-label>
+      <input type="number" matInput placeholder="Lifespan" formControlName="lifespan" required>
+      <mat-error *ngIf="animalForm.value.lifespan.invalid">You must enter a valid value.</mat-error>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label>Friendliness</mat-label>
+      <input type="number" matInput placeholder="Friendliness" formControlName="friendliness" required>
+      <mat-error *ngIf="animalForm.value.friendliness.invalid">You must enter a valid value.</mat-error>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+
+    <mat-divider></mat-divider>
+    <button color="primary" mat-raised-button type="submit" [disabled]="!animalForm.valid" >Submit</button>
+  </form>
+</div>

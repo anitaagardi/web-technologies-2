@@ -1,0 +1,32 @@
+<html>
+<body>
+<p></p>
+
+    <button mat-raised-button routerLinkActive="active" routerLink="/add-product" class="actbtn" >Hozzáadás</button>
+
+  <p></p>
+<mat-panel-title class="mat-title"> Termékek </mat-panel-title>
+
+<p></p>
+
+<table class="mat-elevation-z8">
+  <thead>
+  <tr>
+    <th>Név</th>
+    <th>Ár</th>
+    <th>Üzlet</th>
+    <th>Hely</th>
+  </tr>
+  </thead>
+  <tr *ngFor="let product of products">
+    <td>{{product.name}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.shop}}</td>
+    <td>{{product.location}}</td>
+  </tr>
+</table>
+
+
+</body>
+</html>
+

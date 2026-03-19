@@ -1,0 +1,69 @@
+<div class="example-container mat-elevation-z8">
+  <div class="title-card">
+    <mat-card>
+      <h1 class="mat-headline">Add employee</h1>
+    </mat-card>
+  </div>
+
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label>Name</mat-label>
+      <input type="text" matInput [formControl]="name" required>
+      <mat-error *ngIf="name.invalid">Name is not valid</mat-error>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label>Age</mat-label>
+      <input type="number" matInput [formControl]="age" required>
+      <mat-error *ngIf="age.invalid">Age is not valid</mat-error>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label>Position</mat-label>
+      <input type="text" matInput [formControl]="position" required>
+      <mat-error *ngIf="position.invalid">Position is not valid</mat-error>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label>Address</mat-label>
+      <input type="text" matInput [formControl]="address" required>
+      <mat-error *ngIf="address.invalid">Address is not valid</mat-error>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label>Company</mat-label>
+      <input type="text" matInput [formControl]="company" required>
+      <mat-error *ngIf="company.invalid">Company is not valid</mat-error>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label>Department</mat-label>
+      <input type="text" matInput [formControl]="department" required>
+      <mat-error *ngIf="department.invalid">Department is not valid</mat-error>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label>Salary</mat-label>
+      <input type="number" matInput [formControl]="salary" required>
+      <mat-error *ngIf="salary.invalid">Salary is not valid</mat-error>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+
+    <mat-divider></mat-divider>
+    <button color="primary" mat-raised-button type="submit" [disabled]="!employeeForm.valid" >Submit</button>
+  </form>
+</div>

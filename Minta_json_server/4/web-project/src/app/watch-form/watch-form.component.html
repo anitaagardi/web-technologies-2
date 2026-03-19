@@ -1,0 +1,68 @@
+<div class="example-container mat-elevation-z8">
+  <div class="title-card">
+    <mat-card>
+      <h1 class="mat-headline">Add watch</h1>
+    </mat-card>
+  </div>
+
+  <form [formGroup]="watchForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label>Price</mat-label>
+      <input type="number" matInput placeholder="eg. 1500" [formControl]="price" required>
+      <mat-error *ngIf="price.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label>Brand</mat-label>
+      <input matInput placeholder="eg. Rolex" [formControl]="brand" required>
+      <mat-error *ngIf="brand.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label>Model</mat-label>
+      <input matInput placeholder="eg. Submariner" [formControl]="model" required>
+      <mat-error *ngIf="model.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label>Gender</mat-label>
+      <mat-select [formControl]="gender" required>
+        <mat-option value="F">Female</mat-option>
+        <mat-option value="M">Male</mat-option>
+      </mat-select>
+      <mat-error *ngIf="gender.invalid">{{getErrorMessageForOptions()}}</mat-error>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label>Movement</mat-label>
+      <mat-select [formControl]="movement" required>
+        <mat-option value="quartz">Quartz</mat-option>
+        <mat-option value="Mechanical">Mechanical</mat-option>
+      </mat-select>
+      <mat-error *ngIf="movement.invalid">{{getErrorMessageForOptions()}}</mat-error>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+
+    <mat-form-field class="form-element" appearance="fill">
+      <mat-label>Case Material</mat-label>
+      <mat-select [formControl]="caseMaterial" required>
+        <mat-option value="steel">Stainless Steel</mat-option>
+        <mat-option value="plastic">Plastic</mat-option>
+        <mat-option value="precious">Precious Metal</mat-option>
+      </mat-select>
+      <mat-error *ngIf="caseMaterial.invalid">{{getErrorMessageForOptions()}}</mat-error>
+    </mat-form-field>
+
+    <mat-divider></mat-divider>
+    <button color="primary" mat-raised-button type="submit" [disabled]="!watchForm.valid" >Submit</button>
+  </form>
+</div>

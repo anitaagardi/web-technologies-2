@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "name1",
+      "price": 1200,
+      "shop": "fsdj",
+      "location": "jfdlsjfds"
+    },
+    {
+      "id": "2",
+      "name": "name2",
+      "price": 1300,
+      "shop": "fsdjfd",
+      "location": "jfdlsjfds"
+    },
+    {
+      "name": "jfldsjlfds",
+      "price": 1400,
+      "shop": "fsdjvcxvcx",
+      "location": "jfdlsjfds",
+      "id": "HhZfwhN"
+    },
+    {
+      "name": "fklsjlfdks",
+      "price": 121212,
+      "shop": "fsfsdf",
+      "location": "rewrew",
+      "id": "ufDCjbX"
+    }
+  ]
+}

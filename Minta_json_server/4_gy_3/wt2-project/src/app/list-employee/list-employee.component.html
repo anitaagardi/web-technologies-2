@@ -1,0 +1,65 @@
+<div class="watch-page-content">
+  <mat-form-field class="value-filter">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" >
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <mat-table class="employee-table" [dataSource]="dataSource"
+               matSort matSortDirection="asc" matSortDisableClear>
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+        <mat-cell *matCellDef="let employee">{{employee.name}}</mat-cell>
+      </ng-container>
+
+       <ng-container matColumnDef="age">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Age</mat-header-cell>
+        <mat-cell *matCellDef="let employee">{{employee.age}}</mat-cell>
+      </ng-container>
+     
+      <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Position</mat-header-cell>
+        <mat-cell *matCellDef="let employee">{{employee.position}}</mat-cell>
+      </ng-container>
+
+       <ng-container matColumnDef="address">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Address</mat-header-cell>
+        <mat-cell *matCellDef="let employee">{{employee.address}}</mat-cell>
+      </ng-container>
+
+
+      <ng-container matColumnDef="company">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Company</mat-header-cell>
+        <mat-cell *matCellDef="let employee">{{employee.company}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="department">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Department</mat-header-cell>
+        <mat-cell *matCellDef="let employee">{{employee.department}}</mat-cell>
+      </ng-container>
+
+       <ng-container matColumnDef="salary">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Salary</mat-header-cell>
+        <mat-cell *matCellDef="let employee">{{employee.salary}}</mat-cell>
+      </ng-container>
+      
+
+      
+
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+        <mat-cell class="duration-cell" *matCellDef="let employee">
+          <button (click)="delete(employee)" mat-raised-button color="warn" ><mat-icon>delete</mat-icon></button>
+        </mat-cell>
+      </ng-container>
+
+
+      <mat-header-row *matHeaderRowDef="columnsToDisplay; sticky: true"></mat-header-row>
+
+      <mat-row *matRowDef="let row; columns: columnsToDisplay"></mat-row>
+
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

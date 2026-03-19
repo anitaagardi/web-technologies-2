@@ -1,0 +1,28 @@
+{
+  "products": [
+    {
+      "name": "name111111",
+      "cost": "111111",
+      "amount": "111111",
+      "id": "1"
+    },
+    {
+      "name": "name22222",
+      "cost": "22222",
+      "amount": "22222",
+      "id": "2"
+    },
+    {
+      "id": "3",
+      "name": "name3",
+      "amount": 45,
+      "cost": 1220
+    },
+    {
+      "name": "ujtermek",
+      "cost": "3333",
+      "amount": "1212",
+      "id": "8na1wvd"
+    }
+  ]
+}
